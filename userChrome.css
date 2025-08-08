@@ -1,0 +1,49 @@
+/* Hide tab strip area (entire vertical container) by default */
+#titlebar {
+  --tabstrip-width: 240px; /* adjust to your vertical tabs width */
+  margin-left: calc(var(--tabstrip-width) * -1);
+  z-index: -100;
+  transition: all 0.3s ease !important;
+  opacity: 0;
+}
+
+/* Hide address bar by default */
+#nav-bar {
+  --navbar-margin: -44px;
+  margin-top: var(--navbar-margin);
+  margin-bottom: 0;
+  z-index: -100;
+  transition: all 0.3s ease !important;
+  opacity: 0;
+}
+
+/* Hide the sidebar by default */
+#sidebar-main {
+    width: 0px !important;
+    overflow: hidden !important;
+    transition: width 0.3s ease !important;
+}
+
+/* Show both tab strip and address bar on hover OR when focused (Cmd+L) */
+#nav-bar:focus-within{
+  margin-top: 0;
+  margin-left: 0;
+  z-index: 100;
+  opacity: 1;
+}
+
+/* Show sidebar when there is focus in the nav-bar */
+#navigator-toolbox:has(#nav-bar:focus-within) ~ #browser #sidebar-main {
+    width: 50px !important;
+    overflow: hidden !important;
+    transition: width 0.3s ease !important;
+}
+
+/* Fallback for builds without :has() */
+@supports not selector(#navigator-toolbox:has(#nav-bar:focus-within)) {
+  #navigator-toolbox:focus-within ~ #browser #sidebar-main {
+    width: 50px !important;
+    overflow: hidden !important;
+    transition: width 0.3s ease !important;
+  }
+}
