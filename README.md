@@ -1,5 +1,3 @@
-<div align="center">
-
 # Minimal Firefox Setup
 
 A lightweight customization for Firefox using a single `userChrome.css` file to keep the browser interface clean and distraction-free.
@@ -49,5 +47,3 @@ A lightweight customization for Firefox using a single `userChrome.css` file to 
 
 ## 📜 License
 MIT License
-
-</div>
